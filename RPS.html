@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // User choice
+            let userChoice = prompt("Rock, paper or scissors?");
+            alert("You have choen " + userChoice);
+            console.log(userChoice);
+
+            // Computer choice
+            let computerChoice = Math.random();
+            if (computerChoice < 0.34) {
+                computerChoice = "rock";
+            } else if (computerChoice <= 0.67) {
+                computerChoice = "paper";
+            } else {
+                computerChoice = "scissors";
+            }
+            alert("The Computer has chosen " + computerChoice);
+            console.log(computerChoice);
+
+            // Compare user choice vs computer choice
+            let compare = function (choice1, choice2) {
+                // tie situation
+                if (choice1 === choice2) {
+                    return "It is a tie!";
+                }
+
+                // nested if-statement for normal situation
+                if (choice1 === "rock") {
+                    if (choice2 === "scissors") {
+                        // rock wins
+                        return "You win!";
+                    } else {
+                        // paper wins
+                        return "You lose! Try again.";
+                    }
+                }
+                if (choice1 === "paper") {
+                    if (choice2 === "rock") {
+                        // paper wins
+                        return "You win!";
+                    } else {
+                        // scissors wins
+                        return "You lose! Try again.";
+                    }
+                }
+                if (choice1 === "scissors") {
+                    if (choice2 === "rock") {
+                        // rock wins
+                        return "You lose! Try again.";
+                    } else {
+                        // scissors wins
+                        return "You win!";
+                    }
+                }
+            };
+
+            // run the results
+            let final = compare(userChoice, computerChoice);
+            alert(final);
+            console.log(final);
+        </script>
+    </body>
+</html>
